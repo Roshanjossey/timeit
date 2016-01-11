@@ -12,7 +12,13 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
+# twitter bootstrap to style things easily
+gem "twitter-bootstrap-rails"
+# devise for authentications
+gem 'devise'
+# authenticate with google
+gem 'omniauth-google-oauth2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,6 +29,19 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# easily query activerecord based on time
+gem 'by_star', :git => "git://github.com/radar/by_star"
+
+# Sass powered bootstrap3
+gem "bootstrap-sass"
+# form builder that creates markup suitable for the Twitter Bootstrap framework
+gem "formtastic-bootstrap"
+# Sass-powered version of FontAwesome
+gem "font-awesome-sass", "~> 4.4"
+# datepicker for bootstrap
+gem "bootstrap-datepicker-rails"
+# Cocoon makes it easier to handle nested forms. Forms that handle nested models and attributes in one form
+gem "cocoon"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,6 +54,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # rspec for testing
+  gem 'rspec-rails'
+  # use pry-rails instead of copying the initializer to every rails project.
+  gem 'pry-rails'
+  # Simple execution control in Pry
+  gem 'pry-nav'
 end
 
 group :development do
@@ -45,3 +70,9 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  # factory_girl is a fixtures replacement with a straightforward definition syntax
+  gem 'factory_girl_rails'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners
+  gem 'shoulda-matchers'
+end
