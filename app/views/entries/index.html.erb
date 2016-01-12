@@ -1,0 +1,32 @@
+<%= form_for @new_entry, :url => { :action => "create" }  do |f|  %>
+  <%= f.label :date %>
+  <%= f.date_field  :date, :placeholder => "Date" %>
+  <%= f.text_field  :project, :placeholder => "Project" %>
+  <%= f.number_field  :duration, :placeholder => "Duration" %>
+  <%= f.label :billable %>
+  <%= f.check_box  :billable %>
+  <%= f.text_area :description, :placeholder => "Description" %>
+  <%= f.submit "Add entry", class: "btn btn-primary" %>
+<%end%>
+
+<% if !flash[:error].nil? %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong><%= flash[:error] %></strong>
+  </div>
+<% end %>
+
+<% if !flash[:success].nil? %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong><%= flash[:success] %></strong>
+  </div>
+<% end %>
+
+<% @entries.each do |entry| %>
+  <p>
+  <%= entry.date %>
+  <%= entry.project %>
+  <%= entry.duration %>
+  </p>
+<% end %>

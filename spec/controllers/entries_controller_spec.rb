@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
 
-  describe "#new" do
-    it "renders new entry form" do
-      get :new
-      expect(response).to render_template :new
+  describe "#index" do
+    it "renders index page" do
+      get :index
+      expect(response).to render_template :index
     end
   end
 end
