@@ -12,6 +12,6 @@ RSpec.describe Entry, type: :model do
   it { is_expected.to validate_presence_of(:date) }
   it { is_expected.to validate_presence_of(:project) }
   it { is_expected.to validate_presence_of(:duration) }
-  it { is_expected.to validate_presence_of(:billable) }
+  it { is_expected.to validate_inclusion_of(:billable).in_array([true, false]) }
 
 end
