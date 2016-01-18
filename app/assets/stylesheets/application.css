@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+#application-heading {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}

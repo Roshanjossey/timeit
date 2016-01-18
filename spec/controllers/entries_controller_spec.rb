@@ -33,5 +33,12 @@ RSpec.describe EntriesController, type: :controller do
         expect(assigns(:entry).attributes.symbolize_keys[:duration]).to eq(new_attributes[:duration])
       end
     end
+
+    describe "#new" do
+      it "renders index page" do
+        get :new
+        expect(response).to render_template :new
+      end
+    end
   end
 end
