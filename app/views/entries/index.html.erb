@@ -1,0 +1,30 @@
+<table class="table">
+  <tbody>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>User</th>
+      <th>Duration</th>
+      <th>Billable</th>
+      <th>Project</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.date %></td>
+      <td><%= User.find(entry.user_id).name %></td>
+      <td><%= entry.duration %></td>
+      <td><%= entry.billable %></td>
+      <td><%= Project.find(entry.project_id).name %></td>
+      <td><%= entry.description %></td>
+      <td class="list_actions">
+        <%= link_to 'Edit', entry, method: :put %>
+        <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
