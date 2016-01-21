@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <% if @billable_projects.count == 0  && @non_billable_projects.count == 0%>
+        <h2>Victoria concordia crescit</h2>
+      <% else %>
+        <div class="table">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">Project Type</th>
+                <th class="text-center">Project</th>
+                <th class="text-center">Total Time Spent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @billable_projects.each.with_index do |billable_project, index| %>
+                <tr>
+                  <% if index == 0 %>
+                    <td class="text-center" rowspan="<%= @billable_projects.count %>">Billable</td>
+                  <% end %>
+                  <td class="text-center"><%= billable_project[0] %></td>
+                  <td class="text-center"><%= billable_project[1] %></td>
+                </tr>
+              <% end %>
+              <% @non_billable_projects.each.with_index do |non_billable_project, index| %>
+                <tr>
+                  <% if index == 0 %>
+                    <td class="text-center" rowspan="<%= @non_billable_projects.count %>">Non-billable Project(s)</td>
+                  <% end %>
+                  <td class="text-center"><%= non_billable_project[0] %></td>
+                  <td class="text-center"><%= non_billable_project[1] %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

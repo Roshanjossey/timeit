@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :entries
 
+
+  get '/users/monthly_summary', to: 'users#monthly_summary'
   # Example resource route with options:
   #   resources :products do
   #     member do
