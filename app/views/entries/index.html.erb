@@ -20,7 +20,7 @@
       <td><%= Project.find(entry.project_id).name %></td>
       <td><%= entry.description %></td>
       <td class="list_actions">
-        <%= link_to 'Edit', entry, method: :put %>
+        <%= link_to 'Edit', edit_entry_path(entry) %>
         <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>

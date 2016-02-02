@@ -19,7 +19,7 @@ RSpec.describe EntriesController, type: :controller do
     end
   end
 
-  describe "PATCH update" do
+  describe "PUT update" do
 
     let(:valid_attributes) { FactoryGirl.build(:entry).attributes.symbolize_keys }
 

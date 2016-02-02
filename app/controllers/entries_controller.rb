@@ -25,10 +25,16 @@ class EntriesController < ApplicationController
     flash[:notice] = "Entry removed"
     redirect_to :action => 'index'
   end
+  
+  def edit
+    @entry = Entry.find(params[:id])
+  end
 
   def update
     @entry = Entry.find(params[:id])
-    @entry.update_attributes params_for_update
+    if @entry.update(params_for_update)
+      redirect_to new_entry_path, notice: 'Product was successfully updated.'
+    end
   end
 
   private
