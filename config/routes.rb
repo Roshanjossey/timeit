@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
 
   get '/users/monthly_summary', to: 'users#monthly_summary'
+  post :batch_time_entries, to: "entries#batch_create"
   # Example resource route with options:
   #   resources :products do
   #     member do
