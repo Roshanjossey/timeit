@@ -2,5 +2,6 @@
     <%=   select_tag 'user_id', options_for_select(User.all.collect{ |u| [u.name, u.id] }) %>
     <%= select_month(Date.today, field_name: 'month') %>
     <%= select_year(Date.today, field_name: 'year') %>
-    <%= submit_tag("Get Monthly Summary") %>
+    <br>
+    <%= submit_tag "Get Monthly Summary", id: "get-summary-button" %>
 <% end %>

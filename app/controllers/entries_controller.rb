@@ -33,7 +33,7 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update(params_for_update)
-      redirect_to new_entry_path, notice: 'Product was successfully updated.'
+      redirect_to entries_path, notice: 'Product was successfully updated.'
     end
   end
 
@@ -42,6 +42,7 @@ class EntriesController < ApplicationController
   def entry_params
     params.require(:entry).permit(:date, :project_id, :duration, :billable, :description, :user_id)
   end
+  
   def params_for_update
     params.require(:entry).permit(:date, :project, :duration, :billable, :description)
   end

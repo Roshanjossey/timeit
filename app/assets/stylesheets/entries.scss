@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #time-entry-form-div{
+    margin: 100px;
     padding: 3px;
     align-content: self;
     border: 1px solid black;
     form {
-        padding: 25px;
         fieldset {
             display: inline;
             margin: 10px;
@@ -20,4 +20,30 @@
             padding: 10px;
         }
     }
+}
+
+#monthly-summary-form-div {
+    margin : 100px;
+    padding: 50px;
+    border: 1px solid black;
+
+    select {
+        margin: 30px;
+    }
+
+    #get-summary-button {
+        margin-left: 80px;
+    }
+}
+
+#view-time-entries-link{
+    margin-left: 43%;
+    a{
+        font-size: 30px;
+    }
+}
+
+#success-message{
+    padding-top: 40px;
+    text-align: center;
 }

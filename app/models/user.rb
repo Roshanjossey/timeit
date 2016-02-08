@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   validates :name, :email, presence: true
-  validates :email, uniqueness: true
+  validates_uniqueness_of :name, :case_sensitive => false
   has_many :entries
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)

@@ -77,6 +77,8 @@ group :test do
   gem 'factory_girl_rails'
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners
   gem 'shoulda-matchers'
+
+  gem 'sqlite3'
 end
 
 gem 'rails_12factor', group: :production

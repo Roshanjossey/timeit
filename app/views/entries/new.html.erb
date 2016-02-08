@@ -1,7 +1,11 @@
-<div class="col-md-12" id="time-entry-form-div">
+<div  id="time-entry-form-div">
     <%= render "entries/time_entry_form" %>
 </div>
 
-<div class="col-md-12" id="time-entry-form-div">
-    <%= render "entries/monthly_summary_form.html.erb" %>
+<div id="view-time-entries-link">
+    <%= link_to "View Time Entries", entries_path %>
+</div>
+
+<div id="monthly-summary-form-div">
+    <%= render "users/monthly_summary_form.html.erb" %>
 </div>

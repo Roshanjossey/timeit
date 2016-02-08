@@ -231,6 +231,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.3.11)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -284,6 +285,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   shoulda-matchers
   spring
+  sqlite3
   therubyracer
   turbolinks
   twitter-bootstrap-rails
