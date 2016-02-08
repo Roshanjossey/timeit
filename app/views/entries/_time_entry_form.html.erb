@@ -1,11 +1,32 @@
-<%= semantic_form_for  @entry, :html => { :class => "form-inline" } do |f| %>
-    <%= f.inputs do %>
-        <%= f.input :user, :label => false, :include_blank => false %>
-        <%= f.input :project, :label => false, :include_blank => false%>
-        <%= f.input :date, :as => :date_picker, :label => false %>
-        <%= f.input :duration ,:label => "Hours" %>
-        <%= f.input :billable, :as => :boolean %>
-        <%= f.input :description, :as => :string %>
+<%= form_tag entries_path do %>
+    <% if @invalid_entries %>
+        <div id="error-messages">
+            <p> Date and Number of hours should be present</p>
+        </div>
     <% end %>
-    <%= f.actions :submit %>
+    <% @entries.each do |entry| %>
+        <div class="time-entry-row">
+            <%= fields_for 'entries[]', entry do |f| %>
+                <span class="fieldset"> <%= f.select :user_id, User.all.map{ |u| [u.name, u.id] } %> </span>
+                <span class="fieldset"> <%= f.select :project_id, Project.all.map{ |p| [p.name, p.id] } %> </span>
+                <span class="fieldset"> <%= f.date_field :date %> </span>
+                <span class="fieldset">
+                    <%= f.label :Number_of_hours %>
+                    <%= f.number_field :duration %>
+                </span>
+
+                <span class="fieldset">
+                    <%= f.select :billable, [["Billable",true], ["Not Billable", false]] %>
+                </span>
+
+                <span class="fieldset">
+                    <%= f.label :description %>
+                    <%= f.text_field :description %>
+                </span>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="actions">
+        <%= submit_tag "Add entries", id: "add-time-entries-button" %>
+    </div>
 <% end %>

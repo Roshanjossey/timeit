@@ -2,11 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #time-entry-form-div{
-    margin: 100px;
+    padding: 10px;
+
+    #add-time-entries-button{
+        margin-top: 30px;
+        margin-left: 35%;
+        font-size: 25px;
+    }
+
+    .time-entry-row{
+        padding: 10px;
+        .fieldset {
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+    margin: 20px;
     padding: 3px;
     align-content: self;
     border: 1px solid black;
     form {
+        margin-left: 10%;
         fieldset {
             display: inline;
             margin: 10px;
@@ -18,7 +34,12 @@
 
         .form-actions{
             padding: 10px;
+            margin-left: 37%;
         }
+    }
+
+    #entry_submit_action{
+
     }
 }
 
@@ -38,6 +59,7 @@
 
 #view-time-entries-link{
     margin-left: 43%;
+    margin-top: 30px;
     a{
         font-size: 30px;
     }

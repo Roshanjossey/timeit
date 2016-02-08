@@ -5,20 +5,29 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @entry = Entry.new
-  end
-
-  def create
-    @entry = Entry.new(entry_params)
-    if @entry.valid?
-      @entry.save
-      flash[:success] = "Entry added successfully"   
-    else
-      flash.now[:error] = @entry.errors.full_messages.join("<br>").html_safe
-      render 'entries/new'
+    @entries = []
+    5.times do
+      @entries << Entry.new
     end
   end
 
+  def create
+    @entries = []
+    @invalid_entries = params["entries"].map do |entry| 
+      entry = Entry.new(entry_params entry)
+      @entries << entry
+      entry.invalid?
+    end.any?
+    
+    unless @invalid_entries
+      params["entries"].each do |entry|
+        Entry.create(entry_params entry)
+      end
+    else
+      render 'entries/new'
+    end
+  end
+  
   def destroy
     @entry = Entry.find(params[:id])
     @entry.destroy
@@ -38,9 +47,10 @@ class EntriesController < ApplicationController
   end
 
   private
-  
-  def entry_params
-    params.require(:entry).permit(:date, :project_id, :duration, :billable, :description, :user_id)
+
+  def entry_params x
+    x.permit(:user_id, :project_id, :date, :duration, :billable, :description )
+    
   end
   
   def params_for_update
